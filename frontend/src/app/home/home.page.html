@@ -1,0 +1,46 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Suguba
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list lines="full">
+    <ion-item>
+      <ion-label position="floating">Nom</ion-label>
+      <ion-input [(ngModel)]="nom" type="text"></ion-input>
+    </ion-item> 
+    <ion-item>
+      <ion-label position="floating">Prenom</ion-label>
+      <ion-input [(ngModel)]="prenom" type="text"></ion-input>
+    </ion-item> 
+    <ion-item>
+      <ion-label position="floating">Mot de Passe</ion-label>
+      <ion-input [(ngModel)]="mdp" type="text"></ion-input>
+    </ion-item> 
+    <ion-row>
+      <ion-col>
+        <ion-button type="button" (click)="addClient()" color="danger">Ajouter</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-list>
+  <ion-list-header>
+    Clients List
+  </ion-list-header>
+  <ion-list>
+    <ion-item lines="inset" *ngFor="let client of clients">
+      <ion-label>
+        <h5>{{client.nom}} - ({{client.prenom}}, {{client.mdp}})</h5>
+      </ion-label>
+
+      <div class="item-note">
+        <ion-icon name="create" slot="zoom: 2.0"></ion-icon>
+        <ion-icon name="trash" slot="zoom: 2.0"></ion-icon>
+
+
+      </div>
+    </ion-item>
+  </ion-list>
+</ion-content>
